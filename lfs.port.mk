@@ -36,7 +36,7 @@ prepare:
 build:
 ifeq ($(BUILD),meson)
 	@echo "Mode: Build Meson"
-	meson setup ${BUILD_OPTION} build ${BUILDDIR}
+	meson setup -Dprefix=/usr -Dlibdir=/usr/lib ${BUILD_OPTION} build ${BUILDDIR}
 	meson compile -C build
 else ifeq ($(BUILD),make)
 	@echo "Mode: Build Make"
@@ -44,7 +44,7 @@ else ifeq ($(BUILD),make)
 	make -j4 -C ${BUILDDIR} PREFIX=${PREFIX}
 else ifeq ($(BUILD),cmake)
 	@echo "Mode: Build Cmake"
-	cmake -B build -G Ninja -S ${BUILDDIR} ${BUILD_OPTION}
+	cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -B build -G Ninja -S ${BUILDDIR} ${BUILD_OPTION}
 	cmake --build build
 else
 	$(error Unknown BUILD: ${BUILD}. Valid options are 'meson', 'make', or 'cmake')
