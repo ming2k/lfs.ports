@@ -1,3 +1,5 @@
+#!/usr/bin/make -f
+
 list:
 	@find /var/lib/mk/ \
 		-name "*.mk" \
