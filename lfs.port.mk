@@ -41,7 +41,7 @@ ifeq ($(BUILD),meson)
 else ifeq ($(BUILD),make)
 	@echo "Mode: Build Make"
 	${AUTO_CONF}
-	make -j4 -C ${BUILDDIR} PREFIX=${PREFIX}
+	make -j4 -C ${BUILDDIR} PREFIX=${PREFIX} ${MAKEFLAGS}
 else ifeq ($(BUILD),cmake)
 	@echo "Mode: Build Cmake"
 	cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -B build -G Ninja -S ${BUILDDIR} ${BUILD_OPTION}
@@ -60,7 +60,7 @@ ifeq ($(BUILD),meson)
 	tar -C build/package -cvf ${PACKAGE}.tar.gz .
 else ifeq ($(BUILD),make)
 	@echo "Mode: Package Make"
-	make -j4 -C ${BUILDDIR} PREFIX=${PREFIX} DESTDIR="$(PWD)/package" install
+	make -j4 -C ${BUILDDIR} PREFIX=${PREFIX} ${MAKEFLAGS} DESTDIR="$(PWD)/package" install
 	install  -Dm644 $(PWD)/Makefile $(PWD)/package/var/lib/mk/${PACKAGE}.mk
 	$(POST_BUILD)
 	tar -C package -cvf ${PACKAGE}.tar.gz .
