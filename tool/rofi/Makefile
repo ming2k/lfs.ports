@@ -11,8 +11,10 @@ SRCCD = archive
 BUILD = meson
 BUILDDIR = rofi-${_VER}
 BUILD_OPTION = -Dxcb=enabled -Dwayland=enabled
-PREPARE = patch -p1 -d ${BUILDDIR} -i $(PWD)/rofi-sensible-terminal-use-sh.patch; \
-	patch -p1 -d ${BUILDDIR} -i $(PWD)/libnkutils-ignore-failing-asserts.patch; \
+
+prepare:
+	patch -p1 -d ${BUILDDIR} -i $(PWD)/rofi-sensible-terminal-use-sh.patch
+	patch -p1 -d ${BUILDDIR} -i $(PWD)/libnkutils-ignore-failing-asserts.patch
 	patch -p1 -d ${BUILDDIR} -i $(PWD)/disable-failing-tests.patch
 
 include /usr/share/mk/lfs.port.mk
