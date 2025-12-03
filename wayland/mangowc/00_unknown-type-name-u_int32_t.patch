@@ -1,0 +1,11 @@
+--- mangowc-30ab7c86b42808cac0464a2aba9b0f23a4b90ea0/src/config/parse_config.h	2025-12-03 15:42:11.000000000 +0700
++++ mangowc-30ab7c86b42808cac0464a2aba9b0f23a4b90ea0/src/config/parse_config.h.new	2025-12-03 16:50:04.664931749 +0700
+@@ -990,7 +990,7 @@
+ 	} else if (strcmp(func_name, "view") == 0) {
+ 		func = bind_to_view;
+ 
+-		u_int32_t mask = 0;
++		uint32_t mask = 0;
+ 		char *token;
+ 		char *arg_copy = strdup(arg_value);
+ 
