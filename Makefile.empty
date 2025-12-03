@@ -16,6 +16,9 @@ MAKEOPT =
 
 prepare:
 
+# custom-build:
+#
+
 post_build:
 
 include /usr/share/mk/lfs.port.mk
