@@ -31,6 +31,7 @@ help:
    \033[1mcontent, c PKG=package\033[0m	show package contents. \n\
    \033[1msearch, s q=query\033[0m		search package. \n\
    \033[1mview, v PKG=package\033[0m		view package Makefile. \n\
+   \033[1minfo, i PKG=package\033[0m		view package information. \n\
    \033[1minstall, a PKG=package\033[0m	install package. \n"
 
 install:
