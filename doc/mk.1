@@ -1,0 +1,54 @@
+.TH "MK" "1" "December 2025" "Ahmad Raniri" "General Commands Manual"
+.nh
+.ad l
+.SH NAME
+mk \- Makefile-based package manager.
+.SH SYNOPSIS
+\f[B]mk\f[R] [\f[B]achilrsuv\f[R]] 
+
+[\f[B]content \f[I]PKG=package\f[R]] [\f[B]help\f[R]] [\f[B]install \f[I]PKG=<package archive>\f[R]] [\f[B]info \f[I]PKG=package\f[R]] [\f[B]list\f[R]] [\f[B]remove \f[I]PKG=<package path>\f[R]] [\f[B]search \f[I]q=query\f[R]] [\f[B]upgrade \f[I]PKG=<package archive>\f[R]] [\f[B]view \f[I]PKG=package\f[R]]
+.SH DESCRIPTION
+mk(1) is Makefile-based package manager, written in Makefile script. Its main function is to show informations about package, like name, version, installed files, etc. I made it to check installed packages on LFS (Linux From Scratch) Musl.
+.SH OPTIONS
+The following are the options that mk(1) accepts.
+.TP
+\f[B]h\f[R], \f[B]help\f[R]
+show help options.
+.RE
+.TP
+\f[B]c \f[I]PKG=package\f[R], \f[B]content \f[I]PKG=package\f[R]
+List contents of a package.
+.RE
+.TP
+\f[B]i \f[I]PKG=package\f[R], \f[B]info \f[I]PKG=package\f[R]
+view package information.
+.RE
+.TP
+\f[B]a \f[I]PKG=<package archive>\f[R], \f[B]install \f[I]PKG=<package archive>\f[R]
+install package archive.
+.RE
+.TP
+\f[B]l\f[R], \f[B]list\f[R]
+show installed packages.
+.RE
+.TP
+\f[B]r \f[I]PKG=<package path>\f[R], \f[B]remove \f[I]PKG=<package path>\f[R]
+install package archive.
+.RE
+.TP
+\f[B]s \f[I]q=query\f[R], \f[B]search \f[I]q=query\f[R]
+install package archive.
+.RE
+.TP
+\f[B]u \f[I]PKG=<package archive>\f[R], \f[B]upgrade \f[I]PKG=<package archive>\f[R]
+upgrade package.
+.RE
+.TP
+\f[B]v \f[I]PKG=package\f[R], \f[B]view \f[I]PKG=package\f[R]
+view package Makefile information.
+
+.SH AUTHORS
+Ahmad Raniri \c
+.MT lidgnulinux@gmail.com
+.ME \c
+\ and contributors.
