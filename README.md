@@ -53,5 +53,5 @@ note : For more info about `mk`, you could read its documentation [here](https:/
 Mirrors :
 - [GitLab](https://gitlab.com/lidgnulinux/lfs-ports).
 - [Github 1](https://github.com/ahmadraniri/lfs.ports), [Github 2](https://github.com/ahmadraniri1994/lfs.ports). 
-- [darcs 1]((https://hub.darcs.net/ahmadraniri1994/lports), [darcs 2]((https://hub.darcs.net/lidgnulinux/lports).
+- [darcs 1](https://hub.darcs.net/ahmadraniri1994/lports), [darcs 2](https://hub.darcs.net/lidgnulinux/lports).
 - [codeberg.org](https://codeberg.org/lidgnulinux/lfs.ports).
