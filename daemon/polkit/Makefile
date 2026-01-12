@@ -19,7 +19,7 @@ prepare:
 
 post_build:
 	rm -rf build/package/trash
-	@install -m744 alpine-polkit.pam build/package/etc/pam.d/polkit-1
+	@install -m644 alpine-polkit.pam build/package/etc/pam.d/polkit-1
 	chown -R polkitd:polkitd build/package/etc/polkit-1/rules.d build/package/usr/share/polkit-1/rules.d
 	chmod -R 700 build/package/etc/polkit-1/rules.d build/package/usr/share/polkit-1/rules.d
 	chmod 4755 build/package/usr/lib/polkit-1/polkit-agent-helper-1
