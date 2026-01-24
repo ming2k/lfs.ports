@@ -1,6 +1,6 @@
-COMMENT = dwm for Wayland
+COMMENT = dwm for Wayland with ipc patch and gaps (optional) 
 VERSION = v0.8.c9b11a49c
-REVISION = 1
+REVISION = 2
 CATEGORIES = wayland
 PKGNAME = dwl_ipc
 HOMEPAGE = https://codeberg.org/dwl/dwl
@@ -14,6 +14,12 @@ EDITOR = vim
 prepare:
 	patch -p1 -d ${BUILDDIR} -i $(PWD)/patch/ipc-commit.9b11a49c.patch
 	cp -r protocols/dwl-ipc-unstable-v2.xml ${BUILDDIR}/protocols/
+ifeq ($(GAPS),YES)
+	@echo "applying gaps patch."
+	patch -p1 -d ${BUILDDIR} -i $(PWD)/patch/optional-gaps-commit.9b11a49c.patch
+else
+	@echo "skipping applying gaps patch."
+endif
 
 config:
 	${EDITOR} ${BUILDDIR}/config.def.h
