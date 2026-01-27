@@ -1,0 +1,13 @@
+--- dwlmsg/Makefile	2025-07-02 22:30:30.000000000 +0700
++++ dwlmsg/Makefile.new	2026-01-27 08:54:04.849595092 +0700
+@@ -13,8 +13,8 @@
+ 	rm -f $(BINS) *.o *-protocol.*
+ 
+ install: all
+-	mkdir -p $(PREFIX)/bin
+-	cp -f $(BINS) $(PREFIX)/bin
++	mkdir -p $(DESTDIR)$(PREFIX)/bin
++	cp -f $(BINS) $(DESTDIR)$(PREFIX)/bin
+ 
+ WAYLAND_PROTOCOLS = `pkg-config --variable=pkgdatadir wayland-protocols`
+ WAYLAND_SCANNER = `pkg-config --variable=wayland_scanner wayland-scanner`
