@@ -1,0 +1,25 @@
+#!/sbin/openrc-run
+
+pidfile="/var/run/gpm.pid"
+command=/usr/sbin/gpm
+command_args=${gpm_opts:--m /dev/input/mice -t imps2}
+
+depend() {
+	after localmount
+	use hotplug logger
+}
+
+start() {
+	${command} ${command_args}
+}
+
+stop() {
+	${command} -k 
+}
+
+reload() {
+  echo "Restarting gpm..."
+  /usr/sbin/gpm -k
+  sleep 1
+  /usr/sbin/gpm -m /dev/input/mice -t imps2
+}

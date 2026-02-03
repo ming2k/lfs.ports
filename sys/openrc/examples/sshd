@@ -1,0 +1,22 @@
+#!/sbin/openrc-run
+# /etc/init.d/sshd
+
+description="OpenSSH server"
+command="/sbin/sshd"
+pidfile="/run/${RC_SVCNAME}.pid"
+
+depend() {
+    need net
+}
+
+start() {
+    ebegin "Starting sshd"
+    ${command}
+    eend $?
+}
+
+stop() {
+    ebegin "Stopping sshd"
+    kill $(pidof sshd)
+    eend $?
+}

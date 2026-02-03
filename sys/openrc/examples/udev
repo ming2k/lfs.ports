@@ -1,0 +1,35 @@
+#!/sbin/openrc-run
+# Copyright 1999-2013 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+command="/sbin/udevd"
+command_args="${udev_opts}"
+command_background=yes
+pidfile="/var/run/udev.pid"
+description="udev manages device permissions and symbolic links in /dev"
+extra_started_commands="reload"
+description_reload="Reload the udev rules and databases"
+
+depend() {
+	need sysfs dev-mount
+	before checkfs fsck
+	keyword -containers
+}
+
+start() {
+	${command} --daemon
+}
+
+stop() {
+	ebegin "Stopping ${name:-$RC_SVCNAME}"
+	udevadm control --exit ||
+		start-stop-daemon --stop --exec "${command}" --pidfile "${pidfile}"
+	eend $? "Failed to stop $RC_SVCNAME"
+	[ $? -eq 0 ] && rm -f "${pidfile}" /run/udev/control
+}
+
+reload() {
+	ebegin "reloading udev rules and databases"
+	udevadm control --reload
+	eend $?
+}
